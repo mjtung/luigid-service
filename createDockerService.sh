@@ -4,9 +4,9 @@
     # mount volume to persist state
     # mount folder for logs
     # pass in logdir args to luigid command
-docker service create -d -p 8081:8082 --name docker-luigid-service2 \
+docker service create -d -p 8082:8082 --name docker-luigid-service \
     --replicas=2 \
     --mount type=volume,source=luigistate,destination=/luigi/state \
     --mount type=bind,source=/mnt/c/Users/tungm/Projects/luigi-server/log-mjtung-image,destination=/var/log/luigi \
-    luigid-service:0.1 \
+    mjtung/luigid-service \
     --logdir /var/log/luigi  
